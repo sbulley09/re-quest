@@ -1,2 +1,2 @@
 # reQuest
-The initial setup for my reQuest project
+reQuest is a web application aimed at helping create a comprehensive road trip experience. Whether your destination is a few hours away or across the country, reQuest suggests unique pitstops to experience while giving you a chance to stretch your legs. The user has various options to specify their distinct interests and customize their route. Let's be honest, your experience getting there is just as important the destination itself, so why not reQuest a better way?
