@@ -7,12 +7,10 @@ class Home extends Component {
   render() {
     return (
       <div className="content">
-        <div />
         <div>
           <Header />
           <div className="content-container">{this.props.content}</div>
         </div>
-        <div />
       </div>
     );
   }

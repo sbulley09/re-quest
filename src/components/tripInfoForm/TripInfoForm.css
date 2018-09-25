@@ -1,0 +1,36 @@
+form.trip-info-content {
+  background: var(--white);
+  border-radius: 10px;
+  margin: 75px 20px 20px 150px;
+  padding: 20px;
+  width: 500px;
+}
+
+form.trip-info-content > div {
+  margin: 10px 0px;
+}
+
+form.trip-info-content div.trip-info-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+form.trip-info-content div.trip-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form.trip-info-content input {
+  border: 1px rgb(212, 212, 212) solid;
+  border-radius: 3px;
+  margin: 0px 5px;
+  padding: 10px;
+}
+
+form.trip-info-content div.submit {
+  text-align: right;
+}
+
+div.errors {
+  color: var(--medGreen);
+}
