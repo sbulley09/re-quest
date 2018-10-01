@@ -1,3 +1,5 @@
 div.trip-builder {
   background: var(--white);
+  vertical-align: center;
+  margin: 0% 10%;
 }

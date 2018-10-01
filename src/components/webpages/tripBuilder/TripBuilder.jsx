@@ -11,10 +11,9 @@ class TripBuilder extends Component {
     super(props);
 
     this.state = {
-      origin: this.props.origin,
-      destination: this.props.destination,
-      originLat: undefined,
-      originLng: undefined
+      originAddress: this.props.location.state.origin,
+      originResponse: undefined,
+      destination: this.props.location.state.destination
     };
   }
 
@@ -22,19 +21,16 @@ class TripBuilder extends Component {
     axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
-          address: this.state.origin,
+          address: this.state.originAddress,
           key: "AIzaSyDg7m2WmdP4yxNFh6NR5weXkk-P91xpmOE"
         }
       })
       .catch(function(error) {
         console.log(error);
       })
-      .then(function(response) {
-        const origin = response.data.results[0].geometry.location;
-        this.setState({
-          originLat: origin.lat,
-          originLng: origin.lng
-        });
+      .then(response => {
+        console.log(response);
+        this.setState({ originResponse: response });
       });
   }
 
@@ -43,16 +39,17 @@ class TripBuilder extends Component {
       <div className="trip-builder">
         <MyMapComponent
           isMarkerShown
-          origin={{ lat: this.state.originLat, lng: this.state.originLng }}
+          origin={this.state.originResponse}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg7m2WmdP4yxNFh6NR5weXkk-P91xpmOE&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px` }} />}
+          containerElement={<div style={{ height: `600px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
       </div>
     );
 
-    return <Webpage content={content} />;
+    if (this.state.originResponse) return <Webpage content={content} />;
+    return <div>HALLO</div>;
   }
 }
 
